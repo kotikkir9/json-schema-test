@@ -1,0 +1,105 @@
+{
+    "title": "App Settings",
+    "type": "object",
+    "required": ["name", "age"],
+    "properties": {
+        "name": {
+            "title": "Name",
+            "type": "string",
+            "default": "Kirill",
+            "description": "Optional field description"
+        },
+        "age": {
+            "title": "Age",
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+        },
+        "sex": {
+            "title": "Sex",
+            "type": "string",
+            "default": "potato",
+            "enum": ["male", "female", "potato"]
+        },
+        "OS": {
+            "type": "number",
+            "default": 1,
+            "oneOf": [
+                { "const": 1, "title": "Windows" },
+                { "const": 2, "title": "Linux" },
+                { "const": 3, "title": "MacOS" }
+            ]
+        },
+        "showPassword": {
+            "title": "Show Password",
+            "type": "boolean",
+            "description": "Are you sure?",
+            "default": false
+        },
+        "birthdate": {
+            "title": "Birth Date",
+            "type": "string",
+            "format": "date"
+        },
+        "object": {
+            "title": "Custom Object",
+            "description": "This is a description field for the whole object",
+            "type": "object",
+            "required": ["width", "height"],
+            "properties": {
+                "width": {
+                    "title": "Width",
+                    "type": "integer",
+                    "default": 1,
+                    "exclusiveMinimum": 0,
+                    "description": "This is a description field for the object property"
+                },
+                "height": {
+                    "title": "Height",
+                    "type": "integer",
+                    "default": 1,
+                    "exclusiveMinimum": 0
+                }
+            }
+        },
+        "cars": {
+            "title": "Cars",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "required": ["manufacturer", "model", "year"],
+                "properties": {
+                    "manufacturer": {
+                        "title": "Manufacturer",
+                        "type": "string"
+                    },
+                    "model": {
+                        "title": "Model",
+                        "type": "string"
+                    },
+                    "year": {
+                        "title": "Year",
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "test": {
+            "title": "Test",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "list": {
+                        "title": "List",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
